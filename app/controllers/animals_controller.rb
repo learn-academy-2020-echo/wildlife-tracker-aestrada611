@@ -8,7 +8,7 @@ end
 
 def show
   animal = Animal.find(params[:id])
-  render json: animal
+  render json: animal.to_json(:include => [:sightings])
 end
 
 def create
@@ -37,7 +37,7 @@ def destroy
   else
     render json: animal.erros
   end
-end 
+end
 
 private
 
